@@ -62,7 +62,7 @@
             <input type="text" class="phone" name="phone" />
             <div class="placeholder">핸드폰 번호</div>
           </div>
-          <span class="warning"><i class="fas fa-exclamation"></i>경고</span>
+          <span class="warning"></span>
         </div>
         <div class="email-form">
           <div>
@@ -85,12 +85,12 @@
               <option value="self">직접 입력</option>
             </select>
           </div>
-          <span class="warning"><i class="fas fa-exclamation"></i>경고</span>
+          <span class="warning"></span>
         </div>
         <div class="address-form">
           <div>
             <button class="address__button">검색</button>
-            <input type="text" class="zipcode" name="zipcode" disabled />
+            <input type="text" class="zipcode" name="zipcode" disabled style="width:80px;"/>
             <input type="text" class="address" name="address" disabled />
           </div>
         </div>
@@ -100,6 +100,35 @@
             <div class="placeholder">상세 주소</div>
           </div>
         </div>
+
+        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script>
+
+
+      const addressBtn = document.querySelector('.address__button');
+
+          addressBtn.addEventListener('click', () =>{
+            openSearchAdrs();
+          });
+
+
+          function openSearchAdrs(){
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    
+          const zipCode =document.querySelector('.zipcode');
+          const address = document.querySelector('.address');
+          const addressDetail = document.querySelector('.address__detail');
+          // console.log(data);
+          zipCode.value=data.zonecode;
+          address.value=data.address;
+                  addressDetail.focus();
+                }
+            }).open();
+          }
+            
+        </script>
+
       </div>
       <div class="signup__button">
         <button class="signup__cancel">취소하기</button>

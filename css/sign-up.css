@@ -69,7 +69,7 @@ h3 {
 }
 
 section.signup {
-  width: 500px;
+  width: 550px;
   background-color: var(--color-white);
   border-radius: 8px;
   margin: 0 auto;
@@ -219,8 +219,7 @@ section.signup {
 }
 
 .email-form__input > input:nth-child(1) {
-  text-align: right;
-  padding-right: 15px;
+  padding-left: 20px;
 }
 
 .email-form__input {
@@ -249,6 +248,10 @@ section.signup {
 
 .address-form > div {
   display: flex;
+}
+
+.address-form input {
+  cursor: default;
 }
 
 .address-form > div > *:not(:last-child) {

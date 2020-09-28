@@ -111,10 +111,19 @@ id.addEventListener("keyup", () => {
 
 const warningPw = document.querySelector(".pw-check-form .warning");
 pw.addEventListener("keyup", () => {
-  if (pw.value.length > 0 && pw.value.length > 0) {
-    if (pw.value.length !== pw2.value.length) {
+  if (!checkValidate(pw.value) || !checkValidate(pwChk.value)) {
+    warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 
+    비밀번호는 영문 소문자와 숫자 조합하여 8~16자리로 입력가능합니다.`;
+    return;
+  } else if (checkValidate(pw.value) && !checkValidate(pwChk.value)) {
+    if (pw.value.length !== pwChk.value.length) {
       warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 비밀번호가 일치하지 않습니다.`;
-    } else if (checkValidate(pw.value) && checkValidate(pw.value)) {
+    } else if (pw.value.length === 0 || pwChk.value.length === 0) {
+      warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 비밀번호를 입력해주세요.`;
+    } else {
+      warningPw.innerHTML = `<i class="fas fa-check"></i> 성공`;
     }
   }
 });
+
+// 휴대폰 유효성 검사
