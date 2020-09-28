@@ -1,38 +1,3 @@
-:root {
-  /* Color */
-  --color-white: #fff;
-  --color-light-white: #fcf6f2;
-  --color-dark-white: #ccc;
-  --color-cream: #ecebe8;
-  --color-purple: #c4b9fe;
-  --color-light-purple: #e3b5ff;
-  --color-light-pink: #e8cbc6;
-  --color-dark-pink: #c39489;
-  --color-orange: #f3b25c;
-  --color-green: #68706d;
-  --color-dark-green: #7f928d;
-  --color-black: #333;
-  --color-gray: #616161;
-  --color-light-gray: #cbc7c8;
-  --color-chocolate: #422e28;
-  --color-light-yellow: #fffff5;
-
-  /* font-size */
-  --font-large: 48px;
-  --font-medium: 28px;
-  --font-regular: 18px;
-  --font-small: 16px;
-  --font-micro: 12px;
-
-  /* font-weight */
-  --weight-bold: 700;
-  --weight-semi-bold: 600;
-  --weight-regular: 400;
-
-  /* border */
-  --border-radius-normal: 4px;
-}
-
 button {
   outline: none;
   cursor: pointer;
@@ -42,6 +7,7 @@ button {
 
 input {
   cursor: text;
+  outline: none;
 }
 
 h1 {
@@ -91,6 +57,10 @@ a {
   width: 100%;
 }
 
+.wrapper > section:nth-child(1) {
+  z-index: 3;
+}
+
 .container {
   background-color: var(--color-white);
   width: 450px;
@@ -109,13 +79,13 @@ a {
 .wrapper > section:nth-child(2) {
   position: absolute;
   top: 0;
-  display: none;
+  visibility: hidden;
 }
 
 .wrapper > section:nth-child(3) {
   position: absolute;
   top: 0;
-  display: none;
+  visibility: hidden;
 }
 
 .login__form {
@@ -127,15 +97,19 @@ a {
 .login__form input {
   width: 100%;
   height: 50px;
-  padding: 6px 14px;
-  font-size: var(--font-regular);
+  padding: 6px 14px 0 14px;
+  font-size: calu(var(--font-regular)- 3px);
   border-radius: 6px;
   border: 1px solid var(--color-light-gray);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .login__form input:focus {
-  border-color: var(--color-purple);
+  border-color: var(--color-dark-purple);
+}
+
+.login__form input:focus + .placeholder {
+  color: var(--color-dark-purple);
 }
 
 .login__form > div {
@@ -145,9 +119,12 @@ a {
 .placeholder {
   position: absolute;
   top: 15px;
-  left: 15px;
+  left: 10px;
   color: var(--color-black);
   pointer-events: none;
+  background-color: var(--color-white);
+  padding: 0 5px;
+  transition: transform 200ms ease-in;
 }
 
 .search__info {

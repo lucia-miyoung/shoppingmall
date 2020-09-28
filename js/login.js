@@ -2,7 +2,7 @@
 
 const loginForm = document.querySelector(".login__form");
 const submitBtn = document.querySelector(".login__submit");
-const inputs = document.querySelectorAll("input");
+const inputs = document.querySelectorAll(".login__form > div > input");
 
 submitBtn.addEventListener("click", () => {
   const id = loginForm.querySelector(".id");
@@ -20,4 +20,19 @@ submitBtn.addEventListener("click", () => {
     password.value = "";
     id.focus();
   }
+});
+
+// transform: translate(-10%, -108%) scale(0.9);
+
+inputs.forEach((input, index) => {
+  const placeholders = document.querySelectorAll(".placeholder");
+
+  input.addEventListener("focus", () => {
+    placeholders[index].style.transform = `translate(-5%, -108%) scale(0.9)`;
+  });
+  input.addEventListener("blur", () => {
+    if (input.value.trim().length <= 0) {
+      placeholders[index].style.transform = `translate(0%, 0%) scale(1)`;
+    }
+  });
 });
