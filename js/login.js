@@ -2,7 +2,7 @@
 
 const loginForm = document.querySelector(".login__form");
 const submitBtn = document.querySelector(".login__submit");
-const inputs = document.querySelectorAll(".login__form > div > input");
+const inputs = document.querySelectorAll(".container input");
 
 submitBtn.addEventListener("click", () => {
   const id = loginForm.querySelector(".id");
@@ -35,4 +35,29 @@ inputs.forEach((input, index) => {
       placeholders[index].style.transform = `translate(0%, 0%) scale(1)`;
     }
   });
+});
+
+const wrapper = document.querySelector(".wrapper");
+const login = document.querySelector(".login");
+const findId = document.querySelector(".find-id");
+const findPw = document.querySelector(".find-password");
+const searchIdBtn = document.querySelector("#search-id");
+const searchPwBtn = document.querySelector("#search-password");
+const cancelBtnId = document.querySelector(".cancel-button-id");
+const cancelBtnPw = document.querySelector(".cancel-button-pw");
+
+searchIdBtn.addEventListener("click", () => {
+  wrapper.style.transform = `translateX(-100%)`;
+});
+
+searchPwBtn.addEventListener("click", () => {
+  wrapper.style.transform = `translateX(-200%)`;
+});
+
+cancelBtnId.addEventListener("click", () => {
+  wrapper.style.transform = `translateX(0%)`;
+});
+
+cancelBtnPw.addEventListener("click", () => {
+  wrapper.style.transform = `translateX(0%)`;
 });

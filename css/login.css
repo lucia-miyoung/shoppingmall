@@ -42,50 +42,40 @@ a {
   color: black;
 }
 
+.section-wrapper {
+  width: 450px;
+  overflow: hidden;
+  margin: auto;
+}
+
 .wrapper {
-  /* border: 1px solid red; */
-  position: relative;
+  display: flex;
+  transition: transform 400ms ease-in;
 }
 
 .wrapper > section {
   margin: auto;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-}
-
-.wrapper > section:nth-child(1) {
-  z-index: 3;
+  height: 100%;
+  /* border: 1px solid red; */
 }
 
 .container {
+  border-radius: 8px;
   background-color: var(--color-white);
   width: 450px;
+  /* border: 1px solid blue; */
   border-radius: 8px;
   padding: 30px 40px;
-  -webkit-box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
+  /* -webkit-box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
   -moz-box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
-  box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
+  box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1); */
 }
 
 .container hr {
   opacity: 0.5;
   margin-bottom: 20px;
-}
-
-.wrapper > section:nth-child(2) {
-  position: absolute;
-  top: 0;
-  visibility: hidden;
-}
-
-.wrapper > section:nth-child(3) {
-  position: absolute;
-  top: 0;
-  visibility: hidden;
 }
 
 .login__form {
@@ -94,7 +84,7 @@ a {
   /* border: 1px solid red; */
 }
 
-.login__form input {
+.container input {
   width: 100%;
   height: 50px;
   padding: 6px 14px 0 14px;
@@ -104,15 +94,23 @@ a {
   margin-bottom: 15px;
 }
 
-.login__form input:focus {
+.container input:focus {
   border-color: var(--color-dark-purple);
 }
 
-.login__form input:focus + .placeholder {
+.container input:focus + .placeholder {
   color: var(--color-dark-purple);
 }
 
 .login__form > div {
+  position: relative;
+}
+
+.find-id-form > div {
+  position: relative;
+}
+
+.find-pw-form > div {
   position: relative;
 }
 
@@ -153,12 +151,11 @@ a {
   background-color: var(--color-light-gray);
 }
 
-.login button {
+.container button {
   width: 100%;
   height: 50px;
-  /* height: 100%; */
   font-size: calc(var(--font-regular) + 4px);
-  background-color: var(--color-light-purple);
+  background-color: var(--color-purple);
   border-radius: var(--border-radius-normal);
   color: var(--color-light-white);
   font-weight: var(--weight-semi-bold);
@@ -169,7 +166,11 @@ a {
   transition: transform 300ms ease-in;
 }
 
-.login button:hover {
+.container button:hover {
   transform: translateY(0px);
   opacity: 1;
+}
+
+.cancel-button {
+  background-color: lightgray;
 }

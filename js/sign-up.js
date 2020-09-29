@@ -85,17 +85,26 @@ function isValidated(value) {
   return valid.test(value);
 }
 
+function warningHTML(message) {
+  return `<i class="fas fa-exclamation"></i> ${message}`;
+}
+
+function successHTML() {
+  return `<i class="fas fa-check" style="color: #2d96e0;"></i>`;
+}
+
 id.addEventListener("keyup", () => {
   if (id.value.length > 0) {
     if (!isValidated(id.value)) {
-      warningId.innerHTML = `<i class="fas fa-exclamation"></i>
-      아이디는 영문 소문자와 숫자 조합하여 8~16자리로 입력가능합니다.`;
+      warningId.innerHTML = warningHTML(
+        "아이디는 영문 소문자와 숫자 조합하여 8~16자리로 입력가능합니다."
+      );
       return;
     } else {
-      warningId.innerHTML = `<i class="fas fa-check"></i> 성공`;
+      warningId.innerHTML = successHTML();
     }
   } else {
-    warningId.innerHTML = `<i class="fas fa-exclamation"></i> 아이디를 입력해주세요.`;
+    warningId.innerHTML = warningHTML("아이디를 입력해주세요.");
   }
 });
 
@@ -109,16 +118,15 @@ pw.addEventListener("keyup", () => {
 
 function idValidatedPW() {
   if (pw.value.length === 0) {
-    warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 비밀번호를 입력해주세요.`;
+    warningPw.innerHTML = warningHTML("비밀번호를 입력해주세요.");
   } else if (!isValidated(pw.value) || pw.value.length > 16) {
-    warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 
-    비밀번호는 영문 소문자와 숫자 조합하여 8~16자리로 입력가능합니다.`;
+    warningPw.innerHTML = warningHTML(
+      "비밀번호는 영문 소문자와 숫자 조합하여 8~16자리로 입력가능합니다."
+    );
   } else if (pw.value.length !== pwChk.value.length) {
-    warningPw.innerHTML = `<i class="fas fa-exclamation"></i> 
-    비밀번호가 일치하지 않습니다.`;
-  } else if (pwChk.value.length === pw.value.length) {
-    warningPw.innerHTML = `<i class="fas fa-check"></i> 
-     성공 ! `;
+    warningPw.innerHTML = warningHTML("비밀번호가 일치하지 않습니다.");
+  } else if (pwChk.value === pw.value) {
+    warningPw.innerHTML = successHTML();
     return true;
   }
   return false;
@@ -132,16 +140,13 @@ function isValidatedPhone() {
   const input = phoneInput.value.replace(/-/g, "").replace(/[\s]/g, "");
   // console.log(input);
   if (input.length === 0) {
-    warningPhone.innerHTML = `<i class="fas fa-exclamation"></i> 
-    핸드폰 번호를 입력해주세요.
-    `;
+    warningPhone.innerHTML = warningHTML("핸드폰 번호를 입력해주세요.");
   } else if (!validatePhone(input) || input.length > 11) {
-    warningPhone.innerHTML = `<i class="fas fa-exclamation"></i> 
-    핸드폰 번호가 유효하지 않습니다. 숫자 11자리를 입력해주세요.
-    `;
+    warningPhone.innerHTML = warningHTML(
+      "핸드폰 번호가 유효하지 않습니다. 숫자 11자리를 입력해주세요."
+    );
   } else {
-    warningPhone.innerHTML = `<i class="fas fa-check"></i> 
-    성공`;
+    warningPhone.innerHTML = successHTML();
     return true;
   }
   return false;
@@ -168,23 +173,19 @@ const warningEmail = document.querySelector(".email-form .warning");
 
 function isValidatedEmail(value) {
   const check = /@/g;
-  const checkPattern = /^[a-z0-9]+([a-z0-9]+){8-12}/g;
-  if (value.length === 0) {
-    warningEmail.innerHTML = `<i class="fas fa-exclamation"></i> 
-    이메일을 입력해주세요.
-    `;
+  const checkPattern = /^(?=.*\d)(?=.*[a-z])[0-9a-z]{8,12}$/;
+  if (value.length <= 0) {
+    warningEmail.innerHTML = warningHTML("이메일을 입력해주세요.");
+  } else if (!checkPattern.test(value)) {
+    warningEmail.innerHTML = warningHTML(
+      "이메일은 영문 소문자와 숫자 조합하여 8~12자리로 입력해주세요."
+    );
   } else if (check.test(value)) {
-    warningEmail.innerHTML = `<i class="fas fa-exclamation"></i> 
-    잘못된 형식입니다. 이메일 계정을 제외하고 입력해주세요.
-    `;
-  } else if (value.length > 0 && !checkPattern.test(value)) {
-    warningEmail.innerHTML = `<i class="fas fa-exclamation"></i> 
-    이메일은 영문 소문자와 숫자 조합하여 8~12자리로 입력해주세요.
-    `;
+    warningEmail.innerHTML = warningHTML(
+      "잘못된 형식입니다. 이메일 계정을 제외하고 입력해주세요."
+    );
   } else {
-    warningEmail.innerHTML = `<i class="fas fa-check"></i> 
-    성공
-    `;
+    warningEmail.innerHTML = successHTML();
   }
 }
 
@@ -206,9 +207,9 @@ cancelBtn.addEventListener("click", () => {
   location.href = "index.html";
 });
 
-// submitBtn.addEventListener("click", () => {
-//   isValidatedAll();
-// });
+submitBtn.addEventListener("click", () => {
+  isValidatedAll();
+});
 
 function isValidatedAll() {
   const idInput = document.querySelector(".id");
@@ -231,29 +232,38 @@ function isValidatedAll() {
     addressInput,
     addressDetailInput,
   ];
+  let index = 0;
   allInput.forEach((all) => {
-    if ((all.value == "") === allInput.length) {
-      console.log("굿");
+    if (all.value == "") {
+      const placeholder = all.nextElementSibling;
+      if (!placeholder) {
+        return;
+      }
+      const text = placeholder.parentNode.parentNode.querySelector(".warning");
+      if (text === null) {
+        return;
+      }
+      text.innerHTML = warningHTML(
+        `${placeholder.textContent}을(를) 입력해주세요.`
+      );
+    } else {
+      index++;
+      return true;
     }
   });
-
-  // allInput.forEach((all) => {
-  //   if (all.value == "") {
-  //     const placeholder = all.nextElementSibling;
-  //     if (!placeholder) {
-  //       return;
-  //     }
-  //     const text = placeholder.parentNode.parentNode.querySelector(".warning");
-  //     if (text === null) {
-  //       return;
-  //     }
-  //     text.innerHTML = `<i class="fas fa-exclamation"></i>
-  //      ${placeholder.textContent}을(를) 입력해주세요.
-  //      `;
-  //   } else {
-  //     return;
-  //     alert("회원가입이 완료되었습니다.");
-  //     location.href = "login.html";
-  //   }
-  // });
+  if (index === allInput.length) {
+    if (
+      isValidated(idInput.value) &&
+      isValidated(pwInput.value) &&
+      isValidatedEmail(emailInput.value) &&
+      isValidatedPhone(phoneInput.value)
+    ) {
+      alert("회원가입이 완료되었습니다.");
+      location.href = "login.html";
+    } else {
+      alert("잘못된 형식입니다. 올바르게 입력해주세요.");
+    }
+  } else {
+    alert("빈칸을 모두 입력해주세요.");
+  }
 }

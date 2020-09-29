@@ -74,6 +74,9 @@ section.signup {
   border-radius: 8px;
   margin: 0 auto;
   padding: 40px;
+  -webkit-box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
+  -moz-box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
+  box-shadow: 2px 2px 6px 0px rgba(207, 207, 207, 1);
 }
 
 .signup > * {
