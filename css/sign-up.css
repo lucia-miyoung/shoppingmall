@@ -42,14 +42,14 @@ h3 {
 }
 
 .form-wrapper button,
-.signup__button button {
+.signup__complete__form button {
   transform: translateY(0px);
   transition: all 200ms ease-in;
   opacity: 0.8;
 }
 
 .form-wrapper button:hover,
-.signup__button button:hover {
+.signup__complete__form button:hover {
   transform: translateY(2px);
   font-weight: bold;
   opacity: 1;
@@ -270,11 +270,11 @@ section.signup {
   margin: 12px 0 12px 0;
 }
 
-.signup__button {
+.signup__complete__form {
   display: flex;
 }
 
-.signup__button > button {
+.signup__complete__form > button {
   flex: 1;
   background-color: var(--color-purple);
   border-radius: var(--border-radius-normal);
@@ -284,10 +284,14 @@ section.signup {
   font-size: calc(var(--font-medium) - 5px);
 }
 
-.signup__button > button:nth-child(1) {
+/* .signup__complete__form .signup__submit {
+  pointer-events: none;
+} */
+
+.signup__complete__form > button:nth-child(1) {
   background-color: var(--color-light-gray);
 }
 
-.signup__button > button:not(:last-child) {
+.signup__complete__form > button:not(:last-child) {
   margin-right: 6px;
 }
