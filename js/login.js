@@ -48,16 +48,20 @@ const cancelBtnPw = document.querySelector(".cancel-button-pw");
 
 searchIdBtn.addEventListener("click", () => {
   wrapper.style.transform = `translateX(-100%)`;
+  findId.style.display = "block";
 });
 
 searchPwBtn.addEventListener("click", () => {
-  wrapper.style.transform = `translateX(-200%)`;
+  wrapper.style.transform = `translateX(-100%)`;
+  findId.style.display = "none";
 });
 
 cancelBtnId.addEventListener("click", () => {
   wrapper.style.transform = `translateX(0%)`;
+  findId.style.display = "block";
 });
 
 cancelBtnPw.addEventListener("click", () => {
   wrapper.style.transform = `translateX(0%)`;
+  findId.style.display = "none";
 });

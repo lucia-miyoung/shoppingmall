@@ -46,6 +46,8 @@ a {
   width: 450px;
   overflow: hidden;
   margin: auto;
+  /* border: 1px solid red; */
+  margin-top: 10%;
 }
 
 .wrapper {

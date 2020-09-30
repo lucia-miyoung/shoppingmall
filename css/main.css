@@ -1,0 +1,135 @@
+:root {
+  /* Color */
+  --color-white: #fff;
+  --color-light-white: #fcf6f2;
+  --color-dark-white: #ccc;
+  --color-cream: #ecebe8;
+  --color-purple: #c4b9fe;
+  --color-light-purple: #e3b5ff;
+  --color-dark-purple: #9200a6;
+  --color-light-pink: #e8cbc6;
+  --color-dark-pink: #c39489;
+  --color-orange: #f3b25c;
+  --color-green: #68706d;
+  --color-dark-green: #7f928d;
+  --color-black: #333;
+  --color-gray: #616161;
+  --color-light-gray: #cbc7c8;
+  --color-chocolate: #422e28;
+  --color-light-yellow: #fffff5;
+
+  /* font-size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 12px;
+
+  /* font-weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* border */
+  --border-radius-normal: 4px;
+}
+
+body {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.slides__list {
+  width: 1200px;
+  height: 600px;
+  margin: auto;
+  overflow: hidden;
+  /* border: 2px solid red; */
+}
+
+.slides {
+  display: flex;
+  /* border: 2px solid blue; */
+}
+
+.slides__box {
+  position: relative;
+  cursor: pointer;
+}
+
+.slide {
+  position: relative;
+  transition: transform 400ms ease-in;
+}
+
+.slide .slide__description {
+  position: absolute;
+  color: black;
+  font-size: 60px;
+}
+
+.slides__button button {
+  position: absolute;
+  color: var(--color-black);
+  font-size: 70px;
+  opacity: 0.8;
+  transition: all 300ms ease-in;
+}
+
+.slides__button .prev__button {
+  top: 50%;
+  left: 5%;
+}
+
+.slides__button .next__button {
+  top: 50%;
+  right: 5%;
+}
+
+.slides__button button:hover {
+  opacity: 1;
+}
+
+.slides__page {
+  position: absolute;
+  bottom: 25px;
+  left: 48%;
+  width: 200px;
+  height: 20px;
+  /* background-color: red; */
+}
+
+.slides__page > ul {
+  display: flex;
+}
+
+.slides__page > ul > li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: var(--color-white);
+  transition: all 300ms ease-in;
+  cursor: pointer;
+}
+
+.slides__page > ul > li.active {
+  background-color: var(--color-gray);
+  transform: scale(1.2);
+  opacity: 0.8;
+}
