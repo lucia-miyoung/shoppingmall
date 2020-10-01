@@ -8,34 +8,121 @@
       src="https://kit.fontawesome.com/3fb56dfe63.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-family: 'Sansita Swashed', cursive; -->
+
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <script src="./js/main.js" defer></script>
   </head>
+
   <body>
+    <div class="header__cover">
+      <a href="#" class="header__center"> 고객센터 </a>
+    </div>
+    <header class="header" id="section">
+      <div class="header__wrapper">
+        <div class="header__title">
+          <i class="fas fa-hand-holding-heart"></i>
+          <span>Lovely</span>
+        </div>
+        <div class="header__search">
+          <ul>
+            <li>첫번째</li>
+            <li>두번째</li>
+            <li>세번째</li>
+            <li>네번째</li>
+          </ul>
+          <div class="search">
+            <input type="text" class="search__input" />
+            <button class="search__button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <ul class="header__menu">
+          <li class="header__menu__item">
+            <a href="login.html" class="menu__icon">
+              <i class="fas fa-user-alt"></i>
+            </a>
+            <span class="menu__title">로그인</span>
+          </li>
+          <li class="header__menu__item">
+            <a href="sign-up.html" class="menu__icon">
+              <i class="fas fa-file-signature"></i>
+            </a>
+            <span class="menu__title">회원가입</span>
+          </li>
+          <li class="header__menu__item">
+            <a href="#" class="menu__icon">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+            <span class="menu__title">장바구니</span>
+          </li>
+        </ul>
+      </div>
+      <!-- header__wrapper -->
+    </header>
+    <section class="menubar">
+      <div class="menubar__menu">
+        <ul>
+          <li style="width: 40%">
+            <button class="all-item__icon">
+              <i class="fas fa-stream"></i>
+            </button>
+          </li>
+          <li class="menuber__items">
+            <span class="menubar__name">브레드</span>
+          </li>
+          <li class="menuber__items">
+            <span class="menubar__name">식빵</span>
+          </li>
+          <li class="menuber__items">
+            <span class="menubar__name">케이크</span>
+          </li>
+          <li class="menuber__items">
+            <span class="menubar__name">아이스크림</span>
+          </li>
+          <li class="menuber__items">
+            <span class="menubar__name">마카롱</span>
+          </li>
+        </ul>
+      </div>
+    </section>
     <section class="slides__wrapper">
       <div class="slides__box">
         <div class="slides__list">
           <ul class="slides">
             <li class="slide">
-              <img src="./images/background-1.jpg" alt="" />
-              <span class="slide__description"> 배경 1</span>
+              <img src="./images/bread-2.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
             </li>
             <li class="slide">
-              <img src="./images/background-2.jpg" alt="" />
-              <span class="slide__description"> 배경 1</span>
+              <img src="./images/bread-6.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
             </li>
             <li class="slide">
-              <img src="./images/background-3.jpg" alt="" />
-              <span class="slides__description"> 배경 1</span>
+              <img src="./images/bread-3.jpg" alt="" />
+              <!-- <span class="slides__description"> 배경 1</span> -->
             </li>
             <li class="slide">
-              <img src="./images/background-4.jpg" alt="" />
-              <span class="slide__description"> 배경 1</span>
+              <img src="./images/bread-4.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
             </li>
             <li class="slide">
-              <img src="./images/background-5.jpg" alt="" />
-              <span class="slide__description"> 배경 1</span>
+              <img src="./images/bread-5.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
+            </li>
+            <li class="slide">
+              <img src="./images/bread-7.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
+            </li>
+            <li class="slide">
+              <img src="./images/bread-1.jpg" alt="" />
+              <!-- <span class="slide__description"> 배경 1</span> -->
             </li>
           </ul>
         </div>
@@ -55,6 +142,62 @@
       </div>
       <!-- slides__box -->
     </section>
-    <!-- slides__wrapper -->
+    <section class="mid-container">
+      <div class="mid__slides">
+        <ul>
+          <li class="mid__slide">
+            <img src="./images/bread-11.jpg" alt="" />
+            <span class="mid__slide__description">스콘</span>
+          </li>
+          <li class="mid__slide">
+            <img src="./images/bread-7.jpg" alt="" />
+            <span class="mid__slide__description">브레드</span>
+          </li>
+          <li class="mid__slide">
+            <img src="./images/bread-8.jpg" alt="" />
+            <span class="mid__slide__description">고로케</span>
+          </li>
+          <li class="mid__slide">
+            <img src="./images/bread-9.jpg" alt="" />
+            <span class="mid__slide__description">바게트</span>
+          </li>
+          <li class="mid__slide">
+            <img src="./images/bread-10.jpg" alt="" />
+            <span class="mid__slide__description">크로와상</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="last-container" id="section">
+      <div class="last__wrapper">
+        <div class="last__slide">
+          <img src="./images/bread-10.jpg" alt="" />
+          <div class="last__slide__description">
+            <span>20%</span>
+            <p>치즈케익 6,800 → 5,400원</p>
+          </div>
+        </div>
+        <div class="last__slide">
+          <img src="./images/bread-9.jpg" alt="" />
+          <div class="last__slide__description">
+            <span>30%</span>
+            <p>브라우니 4,500 → 3,100원</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="footer__number">
+          <p>고객센터 080-6664-7779</p>
+          <p>영업시간 평일 09:00 ~ 19:00</p>
+        </div>
+        <hr />
+        <div class="footer__address">
+          <p>서울시 강서구 강서로 279</p>
+        </div>
+        <div class="rights">2020. (주)MIYOUNG. All Rights Reserved</div>
+      </div>
+    </footer>
   </body>
 </html>

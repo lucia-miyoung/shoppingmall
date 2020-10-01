@@ -204,7 +204,7 @@ cancelBtn.addEventListener("click", () => {
   if (!back) {
     return;
   }
-  location.href = "index.html";
+  location.href = "main.html";
 });
 
 submitBtn.addEventListener("click", () => {
