@@ -11,129 +11,134 @@
     <link rel="stylesheet" href="./css/sign-up.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <script src="./js/sign-up.js" defer></script>
+    <script src="/js/server.js"></script>
   </head>
   <body>
     <section class="signup">
       <div class="signup-title">
         <h2>회원가입</h2>
-       </hr>
+        <!-- <hr /> -->
       </div>
       <div class="profile">
-        
-        <img src="./images/user.png">
-        
+        <img src="./images/user.png" />
+
         <label for="profile__insert">
-            <i class="fas fa-camera"></i>
-          <input type="file" id="profile__insert">
-          </label>
-          <button class="profile__delete"><i class="fas fa-trash-alt"></i></button>
-        
-        </div>
-      <div class="form-wrapper">
-        <div class="id-form">
-          <div>
-            <input type="text" class="id" name="id" />
-            <div class="placeholder">아이디</div>
-            <button class="id__check">중복 확인</button>
+          <i class="fas fa-camera"></i>
+          <input type="file" id="profile__insert" />
+        </label>
+        <button class="profile__delete">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+      <form action="/router" method="post">
+        <div class="form-wrapper">
+          <div class="id-form">
+            <div>
+              <input type="text" class="id" name="id" />
+              <div class="placeholder">아이디</div>
+              <button class="id__check">중복 확인</button>
+            </div>
+            <span class="warning"></span>
           </div>
-          <span class="warning"></span>
-        </div>
-        <div class="pw-form">
-         <div>
-            <input type="password" class="password" name="password" />
-            <div class="placeholder">비밀번호</div>
-         </div>
-        </div>
-        <div class="pw-check-form">
-          <div>
-            <input type="password" class="password-check" name="pw-check" />
-            <div class="placeholder">비밀번호 확인</div>
+          <div class="pw-form">
+            <div>
+              <input type="password" class="password" name="password" />
+              <div class="placeholder">비밀번호</div>
+            </div>
           </div>
-          <span class="warning"></span>
-        </div>
-        <div class="name-form">
-          <div>
-            <input type="text" class="name" name="name" />
-            <div class="placeholder">이름</div>
+          <div class="pw-check-form">
+            <div>
+              <input type="password" class="password-check" name="pw-check" />
+              <div class="placeholder">비밀번호 확인</div>
+            </div>
+            <span class="warning"></span>
           </div>
-        </div>
-        <div class="phone-form">
-          <div>
-            <input type="text" class="phone" name="phone" />
-            <div class="placeholder">핸드폰 번호</div>
+          <div class="name-form">
+            <div>
+              <input type="text" class="name" name="name" />
+              <div class="placeholder">이름</div>
+            </div>
           </div>
-          <span class="warning"></span>
-        </div>
-        <div class="email-form">
-          <div>
-            <div class="email-form__input">
-              <input type="text" class="email" name="email" />
-              <div class="placeholder">이메일 주소</div>
-              <span>@</span>
+          <div class="phone-form">
+            <div>
+              <input type="text" class="phone" name="phone" />
+              <div class="placeholder">핸드폰 번호</div>
+            </div>
+            <span class="warning"></span>
+          </div>
+          <div class="email-form">
+            <div>
+              <div class="email-form__input">
+                <input type="text" class="email" name="email" />
+                <div class="placeholder">이메일 주소</div>
+                <span>@</span>
+                <input
+                  type="text"
+                  class="email__detail disabled"
+                  name="email__detail"
+                  disabled
+                />
+              </div>
+              <select name="email-input" id="email-input">
+                <option value="naver">naver.com</option>
+                <option value="gmail">gmail.com</option>
+                <option value="daum">daum.net</option>
+                <option value="nate">nate.com</option>
+                <option value="self">직접 입력</option>
+              </select>
+            </div>
+            <span class="warning"></span>
+          </div>
+          <div class="address-form">
+            <div>
+              <button class="address__button">검색</button>
               <input
                 type="text"
-                class="email__detail disabled"
-                name="email__detail"
+                class="zipcode"
+                name="zipcode"
                 disabled
+                style="width: 80px"
               />
+              <input type="text" class="address" name="address" disabled />
             </div>
-            <select name="email-input" id="email-input">
-              <option value="naver">naver.com</option>
-              <option value="gmail">gmail.com</option>
-              <option value="daum">daum.net</option>
-              <option value="nate">nate.com</option>
-              <option value="self">직접 입력</option>
-            </select>
           </div>
-          <span class="warning"></span>
-        </div>
-        <div class="address-form">
-          <div>
-            <button class="address__button">검색</button>
-            <input type="text" class="zipcode" name="zipcode" disabled style="width:80px;"/>
-            <input type="text" class="address" name="address" disabled />
+          <div class="address-detail-form">
+            <div>
+              <input type="text" class="address__detail" />
+              <div class="placeholder">상세 주소</div>
+            </div>
           </div>
-        </div>
-        <div class="address-detail-form">
-          <div>
-            <input type="text" class="address__detail" />
-            <div class="placeholder">상세 주소</div>
-          </div>
-        </div>
 
-        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script>
+          <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+          <script>
+            const addressBtn = document.querySelector(".address__button");
 
+            addressBtn.addEventListener("click", () => {
+              openSearchAdrs();
+            });
 
-      const addressBtn = document.querySelector('.address__button');
-
-          addressBtn.addEventListener('click', () =>{
-            openSearchAdrs();
-          });
-
-
-          function openSearchAdrs(){
-            new daum.Postcode({
-                oncomplete: function(data) {
-                    
-          const zipCode =document.querySelector('.zipcode');
-          const address = document.querySelector('.address');
-          const addressDetail = document.querySelector('.address__detail');
-          // console.log(data);
-          zipCode.value=data.zonecode;
-          address.value=data.address;
+            function openSearchAdrs() {
+              new daum.Postcode({
+                oncomplete: function (data) {
+                  const zipCode = document.querySelector(".zipcode");
+                  const address = document.querySelector(".address");
+                  const addressDetail = document.querySelector(
+                    ".address__detail"
+                  );
+                  // console.log(data);
+                  zipCode.value = data.zonecode;
+                  address.value = data.address;
                   addressDetail.focus();
-                }
-            }).open();
-          }
-            
-        </script>
-
-      </div>
-      <div class="signup__complete__form">
-        <button class="signup__cancel">취소하기</button>
-        <button class="signup__submit" type="submit">가입완료</button>
-      </div>
+                },
+              }).open();
+            }
+          </script>
+        </div>
+        <div class="signup__complete__form">
+          <button class="signup__cancel">취소하기</button>
+          <button class="signup__submit" type="submit">가입완료</button>
+        </div>
+      </form>
     </section>
   </body>
 </html>
