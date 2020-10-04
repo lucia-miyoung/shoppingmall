@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/sign-up.css" />
     <link rel="stylesheet" href="./css/reset.css" />
     <script src="./js/sign-up.js" defer></script>
-    <script src="/js/server.js"></script>
+    <script src="server.js"></script>
   </head>
   <body>
     <section class="signup">
@@ -30,7 +30,7 @@
           <i class="fas fa-trash-alt"></i>
         </button>
       </div>
-      <form action="/router" method="post">
+      <form action="/signup" method="post">
         <div class="form-wrapper">
           <div class="id-form">
             <div>
@@ -97,9 +97,16 @@
                 class="zipcode"
                 name="zipcode"
                 disabled
+                value="07748"
                 style="width: 80px"
               />
-              <input type="text" class="address" name="address" disabled />
+              <input
+                type="text"
+                class="address"
+                name="address"
+                disabled
+                value="서울시 종로구"
+              />
             </div>
           </div>
           <div class="address-detail-form">
@@ -108,7 +115,6 @@
               <div class="placeholder">상세 주소</div>
             </div>
           </div>
-
           <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
           <script>
             const addressBtn = document.querySelector(".address__button");

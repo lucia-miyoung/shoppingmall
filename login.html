@@ -11,7 +11,7 @@
     .
     <link rel="stylesheet" href="./css/login.css" />
     <link rel="stylesheet" href="./css/reset.css" />
-    <script src="/js/server.js"></script>
+    <script src="server.js"></script>
 
     <script src="./js/login.js" defer></script>
   </head>
@@ -19,28 +19,30 @@
     <section class="section-wrapper">
       <section class="wrapper">
         <section class="login">
-          <div class="container">
-            <h2>로그인</h2>
-            <hr />
-            <div class="login__form">
-              <div class="login__id">
-                <input type="text" class="id" name="id" />
-                <div class="placeholder">아이디</div>
+          <form action="/login" method="post">
+            <div class="container">
+              <h2>로그인</h2>
+              <hr />
+              <div class="login__form">
+                <div class="login__id">
+                  <input type="text" class="id" name="id" />
+                  <div class="placeholder">아이디</div>
+                </div>
+                <div class="login__password">
+                  <input type="password" class="password" name="password" />
+                  <div class="placeholder">비밀번호</div>
+                </div>
               </div>
-              <div class="login__password">
-                <input type="password" class="password" name="password" />
-                <div class="placeholder">비밀번호</div>
+              <div class="search">
+                <ul class="search__info">
+                  <li><a href="#" id="search-id">아이디 찾기</a></li>
+                  <li><a href="#" id="search-password">비밀번호 찾기</a></li>
+                  <li><a href="sign-up.html">회원가입</a></li>
+                </ul>
               </div>
+              <button type="submit" class="login__submit">로그인</button>
             </div>
-            <div class="search">
-              <ul class="search__info">
-                <li><a href="#" id="search-id">아이디 찾기</a></li>
-                <li><a href="#" id="search-password">비밀번호 찾기</a></li>
-                <li><a href="sign-up.html">회원가입</a></li>
-              </ul>
-            </div>
-            <button type="submit" class="login__submit">로그인</button>
-          </div>
+          </form>
         </section>
         <section class="find-id">
           <div class="container">

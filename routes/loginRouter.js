@@ -5,7 +5,7 @@ var path = require("path");
 var mysql = require("mysql");
 
 var db = mysql.createConnection({
-  host: "localhose",
+  host: "localhost",
   port: 5501,
   user: "root",
   password: "root123",

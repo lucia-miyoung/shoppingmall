@@ -180,10 +180,11 @@ function isValidatedEmail(value) {
     warningEmail.innerHTML = warningHTML(
       "이메일은 영문 소문자와 숫자 조합하여 8~12자리로 입력해주세요."
     );
-  } else if (check.test(value)) {
-    warningEmail.innerHTML = warningHTML(
-      "잘못된 형식입니다. 이메일 계정을 제외하고 입력해주세요."
-    );
+    // }
+    // else if (check.test(value)) {
+    //   warningEmail.innerHTML = warningHTML(
+    //     "잘못된 형식입니다. 이메일 계정을 제외하고 입력해주세요."
+    //   );
   } else {
     warningEmail.innerHTML = successHTML();
   }
