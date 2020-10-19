@@ -1,10 +1,11 @@
 "use strict";
 
-const inputs = document.querySelectorAll(".form-wrapper > div input");
-
+const inputs = document.querySelectorAll(".form-wrapper > div input[type='text']");
+const passwords = document.querySelectorAll(".form-wrapper > div input[type='password']");
+const inputAll =[...inputs,...passwords];
 const emailInput = document.querySelector("#email-input");
 
-inputs.forEach((input, index) => {
+inputAll.forEach((input, index) => {
   const placeholder = input.nextElementSibling;
   if (!placeholder) {
     return;
@@ -32,14 +33,14 @@ emailInput.addEventListener("change", (e) => {
 
 function inputEmailDetail(text) {
   if (text === "직접 입력") {
-    emailDetail.removeAttribute("disabled");
+    emailDetail.removeAttribute("readonly");
     emailDetail.classList.remove("disabled");
     emailDetail.value = "";
     emailDetail.focus();
     return;
   }
   emailDetail.classList.add("disabled");
-  emailDetail.setAttribute("disabled", "");
+  emailDetail.setAttribute("readonly", "");
   emailDetail.value = text;
 }
 
@@ -65,7 +66,7 @@ inputFile.addEventListener("change", (event) => {
   }
 });
 
-const bagicImgPath = "./images/user.png";
+const bagicImgPath = "/images/user.png";
 deleteBtn.addEventListener("click", () => {
   const check = confirm("기본이미지로 변경하시겠습니까?");
   if (!check) {
@@ -205,7 +206,7 @@ cancelBtn.addEventListener("click", () => {
   if (!back) {
     return;
   }
-  location.href = "main.html";
+  location.href = "/index";
 });
 
 submitBtn.addEventListener("click", () => {
@@ -260,10 +261,8 @@ function isValidatedAll() {
       isValidatedPhone(phoneInput.value)
     ) {
       alert("회원가입이 완료되었습니다.");
-      location.href = "login.html";
-    } else {
-      alert("잘못된 형식입니다. 올바르게 입력해주세요.");
-    }
+      location.href = "/login";
+    } 
   } else {
     alert("빈칸을 모두 입력해주세요.");
   }

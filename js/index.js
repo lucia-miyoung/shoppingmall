@@ -86,37 +86,9 @@ for (let i = 0; i < slideCount; i++) {
   slidesPage.appendChild(pageBtn);
 }
 
-// 슬라이드 이동하는 함수 & 페이저도 순서 맞게 함께 이동
-const pager = document.querySelectorAll(".slides__page > ul li");
-function onMoveSlide(number) {
-  slides.style.transition = "transform 500ms ease-in";
-  slides.style.transform = "translateX(" + -1 * number * slideWidth + "px)";
-  currentIdx = number;
 
-  pager.forEach((page) => {
-    page.classList.remove("active");
-  });
-  pager[number - 1].classList.add("active");
-}
-onMoveSlide(1);
 
-//버튼 누르지 않고, 자동으로 슬라이드 넘기기
-function startAutoSlide() {
-  autoTimer = setInterval(() => {
-    if (currentIdx < slideCount) {
-      onMoveSlide(currentIdx + 1);
-    }
-    if (currentIdx === slide.length) {
-      setTimeout(() => {
-        slides.style.transition = "0s";
-        slides.style.transform = "translateX(0px)";
-      }, 401);
-      currentIdx = 0;
-    }
-  }, 4000);
-}
 
-startAutoSlide();
 
 const controllBtn = document.querySelector(".slides__button");
 
@@ -134,8 +106,6 @@ slidesList.addEventListener("mouseleave", () => {
 function onStopTimer() {
   clearInterval(autoTimer);
 }
-
-// clearInterval(autoTimer);
 
 const menubarMenu = document.querySelector(".menubar__menu");
 const menubarMenuRect = menubarMenu.getBoundingClientRect();
@@ -176,7 +146,7 @@ function createMidSlides(number) {
   for (let i = 0; i < number; i++) {
     midSlides.innerHTML += `
       <li class="mid__slide">
-         <img src="./images/bread-${randomArray[i]}.jpg" alt="" />
+         <img src="../images/bread-${randomArray[i]}.jpg" alt="" />
       </li>
       `;
   }
@@ -184,6 +154,12 @@ function createMidSlides(number) {
 
 createMidSlides(midSlideCount);
 
+
+
+function onModeMidSlide(num) {
+  midSlides.style.transform = "translateX(" + -1 * num * midWidth + "px)";
+  moveIndex = num;
+}
 /* 이전, 다음버튼 누르면 옆으로 이동 (자동슬라이드X) */
 const midWidth = midSlideRect + slideMargin;
 const midSlidesSize = midSlideCount * midWidth;
@@ -201,7 +177,35 @@ midPreBtn.addEventListener("click", () => {
   }
 });
 
-function onModeMidSlide(num) {
-  midSlides.style.transform = "translateX(" + -1 * num * midWidth + "px)";
-  moveIndex = num;
+//버튼 누르지 않고, 자동으로 슬라이드 넘기기
+function startAutoSlide() {
+  autoTimer = setInterval(() => {
+    if (currentIdx < slideCount) {
+      onMoveSlide(currentIdx + 1);
+    }
+    if (currentIdx === slide.length) {
+      setTimeout(() => {
+        slides.style.transition = "0s";
+        slides.style.transform = "translateX(0px)";
+      }, 401);
+      currentIdx = 0;
+    }
+  }, 4000);
 }
+
+startAutoSlide();
+
+
+// 슬라이드 이동하는 함수 & 페이저도 순서 맞게 함께 이동
+const pager = document.querySelectorAll(".slides__page > ul li");
+function onMoveSlide(number) {
+  slides.style.transition = "transform 500ms ease-in";
+  slides.style.transform = "translateX(" + -1 * number * slideWidth + "px)";
+  currentIdx = number;
+
+  pager.forEach((page) => {
+    page.classList.remove("active");
+  });
+  pager[number - 1].classList.add("active");
+}
+onMoveSlide(1);

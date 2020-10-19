@@ -2,7 +2,7 @@
   "name": "shoppingmall",
   "version": "1.0.0",
   "description": "shoppingmall",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
@@ -19,12 +19,15 @@
   },
   "homepage": "https://github.com/lucia-miyoung/shoppingmall#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
     "hbs": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1"
   },
   "devDependencies": {

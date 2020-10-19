@@ -56,6 +56,22 @@ h3 {
   opacity: 1;
 }
 
+.form-wrapper input[type="button"],
+.signup__complete__form input[type="button"] {
+  transform: translateY(0px);
+  transition: all 200ms ease-in;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+}
+
+.form-wrapper input[type="button"]:hover,
+.signup__complete__form input[type="button"]:hover {
+  transform: translateY(2px);
+  font-weight: bold;
+  opacity: 1;
+}
+
 .warning {
   color: red;
   font-size: var(--font-micro);
@@ -219,8 +235,6 @@ section.signup {
   padding: 0 6px;
   outline: none;
   cursor: pointer;
-  /* border: 1px solid black; */
-  /* line-height: 40px; */
 }
 
 .email-form__input > input:nth-child(1) {
@@ -263,7 +277,7 @@ section.signup {
   margin-right: 6px;
 }
 
-.address-form > div button {
+.address-form > div input[type="button"] {
   width: 40%;
   background-color: var(--color-light-purple);
   border-radius: var(--border-radius-normal);
@@ -279,7 +293,8 @@ section.signup {
   display: flex;
 }
 
-.signup__complete__form > button {
+.signup__complete__form > button,
+.signup__complete__form > input[type="button"] {
   flex: 1;
   background-color: var(--color-purple);
   border-radius: var(--border-radius-normal);
@@ -289,10 +304,7 @@ section.signup {
   font-size: calc(var(--font-medium) - 5px);
 }
 
-.signup__complete__form > button:nth-child(1) {
+.signup__complete__form > input[type="button"] {
   background-color: var(--color-light-gray);
-}
-
-.signup__complete__form > button:not(:last-child) {
   margin-right: 6px;
 }

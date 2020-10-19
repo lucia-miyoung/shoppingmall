@@ -39,6 +39,10 @@ function onClickEventProduct(items) {
   });
 
   const searchInput = document.querySelector(".search__input");
+  searchInput.addEventListener('input', () =>{
+    const searchPreview = document.querySelector('.search__preview');
+    searchPreview.classList.add('open');
+  });
   searchInput.addEventListener('keypress', (event) =>{
     if(event.key ==="Enter") {
       onSearchProduct(event, items);
