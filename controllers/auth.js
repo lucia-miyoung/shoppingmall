@@ -48,7 +48,6 @@ exports.login = async(req,res) => {
     }
 }
 
-
 exports.register = (req, res) => {
     console.log(req.body);
     const {id, password, passwordConfirm, name, phone, email, emailDetail, zipcode, address, addressDetail} = req.body;
@@ -80,4 +79,11 @@ exports.register = (req, res) => {
             }
         })
     });
+}
+
+
+exports.breadList = (req, res) => {
+    console.log(req);
+
+
 }

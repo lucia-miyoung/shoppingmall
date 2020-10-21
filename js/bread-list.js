@@ -24,8 +24,8 @@ function makeProduct(items) {
             <span>${items.price}</span>
         </div>
         <div class="dessert__detail">
-        <button type="button" class="show__info">상세사항 </button>
-        <button type="button" class="add__cart" data-name="${items.name}">장바구니 담기 </button>
+        <button type="button" class="show__info" return false;>상세사항 </button>
+        <button type="submit" class="add__cart" data-name="${items.name}">장바구니 담기 </button>
         </div>
     </a>
 </li>`;
@@ -184,7 +184,6 @@ function cartNumbers(item) {
     }
     setItems(item);
 }
-
 function setItems(item) {
     let cartItems = localStorage.getItem('itemsInCart');
     cartItems = JSON.parse(cartItems); //json을 자바스크립트로 변환
@@ -226,5 +225,3 @@ function totalCost(item){
 }
 
 onLoadCartNumbers();
-
-

@@ -24,7 +24,7 @@ app.use('/data', express.static(__dirname + "/data"));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 db.connect((error) => {
     if(error) {
