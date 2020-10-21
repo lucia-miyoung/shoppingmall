@@ -1,6 +1,5 @@
 body {
   background-color: var(--color-cream);
-  /* text-align: center; */
 }
 
 * {
@@ -171,6 +170,10 @@ section.signup {
   transform: translateY(-1px);
   /* opacity: 1; */
   color: var(--color-light-white);
+}
+
+.form-wrapper {
+  text-align: left;
 }
 
 .form-wrapper > div > div {

@@ -86,10 +86,6 @@ for (let i = 0; i < slideCount; i++) {
   slidesPage.appendChild(pageBtn);
 }
 
-
-
-
-
 const controllBtn = document.querySelector(".slides__button");
 
 //슬라이드에 마우스 올라갈시 자동 슬라이드 멈춤

@@ -21,7 +21,7 @@ exports.login = async(req,res) => {
             console.log(results);
             if(!results || !(await bcrypt.compare(password, results[0].password))) {
                 res.status(401).render('login', {
-                    message: 'Id or Password is incorrect'
+                    message: '아이디 또는 비밀번호가 맞지 않습니다. 다시 입력해주세요.'
                 })
             }else {
                 let num =0;
@@ -30,7 +30,7 @@ exports.login = async(req,res) => {
                     expiresIn: process.env.JWT_EXPIRES_IN
                 });
 
-                console.log('the token is: ' +token);
+                // console.log('the token is: ' +token);
 
                 const cookieOptions = {
                     expires: new Date(
@@ -58,11 +58,11 @@ exports.register = (req, res) => {
         }
         if(results.length >0) {
             return res.render('register', {
-                message: 'That email is already in use'
+                message: '이미 사용중인 아이디입니다. 다른 아이디를 입력해주세요.'
             })
         }else if(password !== passwordConfirm ||passwordConfirm.value=="" || password.value=='') {
             return res.render('registser', {
-                message: 'Passwords do not match'
+                message: '비밀번호가 일치하지 않습니다. 다시 입력해주세요.'
             });
         }
         let hashedPassword = await bcrypt.hash(password,8);
@@ -75,7 +75,7 @@ exports.register = (req, res) => {
             }else {
                 console.log(results);
                 return res.render('login' , {
-                    message: 'User registered'
+                    message: '<i class="fas fa-check" style="color: #2d96e0;">'
                 });
             }
         })
